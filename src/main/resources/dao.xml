@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customerDao" class="dao.CustomerDaoImpl"/>
+    <bean id="employeeDao" class="dao.EmployeeDaoImpl"/>
+    <bean id="orderDao" class="dao.OrderDaoImpl"/>
+    <bean id="partDao" class="dao.PartDaoImpl"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:dao.properties"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="systemPropertiesMode" value="2"/>
+    </bean><!--Zwykły dataSource-->
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${spring.jdbc.driverClassName}"/>
+        <property name="url" value="${spring.jdbc.url}"/>
+        <property name="username" value="${spring.jdbc.username}"/>
+        <property name="password" value="${spring.jdbc.password}"/>
+    </bean>
+
+    <bean class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>
+
