@@ -36,6 +36,17 @@ public class OrderDaoImpl implements OrderDao {
         return jdbcTemplate.query("SELECT * FROM orders", getOrderRowMapper());
     }
 
+    @Override
+    public void editOrder(Order order, int id) {
+        jdbcTemplate.update("UPDATE orders SET emplyeeId=?, customerId=? WHERE id = ?", order.getEmployeeID(), order.getCustomerID(), id);
+    }
+
+    @Override
+    public void deleteOrder(int id) {
+        jdbcTemplate.update("DELETE FROM orders WHERE id=?", id);
+
+    }
+
     private RowMapper<Order> getOrderRowMapper(){
         return new RowMapper<Order>() {
             @Override

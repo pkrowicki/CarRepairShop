@@ -13,5 +13,7 @@ public interface OrderDao {
     void addOrder(Order order);
     Order getOrderById(int id);
     List<Order> viewAllOrders();
+    void editOrder(Order order, int id);
+    void deleteOrder(int id);
 
 }
