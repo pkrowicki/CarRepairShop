@@ -19,7 +19,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public void addCustomer(Customer customer) {
-        jdbcTemplate.update("INSERT INTO customers(name, surname, number) VALUES (?,?,?)", customer.getCustomerName(),customer.getCustomerSurname(),customer.getCustomerNumber());
+        jdbcTemplate.update("INSERT INTO customers(customername, customersurname, customernumber) VALUES (?,?,?)", customer.getCustomerName(),customer.getCustomerSurname(),customer.getCustomerNumber());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class CustomerDaoImpl implements CustomerDao {
                 String customerSurname = resultSet.getString("customersurname");
                 String customerPhone = resultSet.getString("customernumber");
 
-                return new Customer(id,customerName,customerSurname,customerPhone);
+                return new Customer(customerName,customerSurname,customerPhone);
             }
         };
     }

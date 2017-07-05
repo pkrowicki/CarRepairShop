@@ -1,6 +1,8 @@
 package dao;
 
 import model.Part;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
@@ -9,15 +11,18 @@ import java.util.List;
  */
 public class PartDaoImpl implements PartDao {
 
-    List<Part> parts;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public void addPart(Part part) {
-        parts.add(part);
+//        jdbcTemplate.update("INSERT INTO parts(partname, partprice) VALUES (?,?)", employee.getEmployeeName(), employee.getEmployeeSurname(), employee.getEmployeeNumber());
+        //TODO finish this
     }
 
     @Override
     public Part getPart(int index) {
-        return parts.get(index);
+        return null;
+        //TODO implement
     }
 }

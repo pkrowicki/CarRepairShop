@@ -19,7 +19,7 @@
 
     </bean>
 
-    <tx:annotation-driven transaction-manager="txManager"/>
+    <!--<tx:annotation-driven transaction-manager="txManager"/>-->
 
 
 

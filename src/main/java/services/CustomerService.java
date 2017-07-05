@@ -16,21 +16,23 @@ public class CustomerService {
     @Autowired
     private CustomerDao customerDao;
 
-    public void addCustomer(Customer customer){
+    public void addCustomer(Customer customer) {
         customerDao.addCustomer(customer);
     }
 
-    public Customer viewCustomerById(int id){
+    public Customer viewCustomerById(int id) {
         return customerDao.viewCustomerById(id);
     }
 
-    List<Customer> viewAllCustomers(){
-        customerDao.viewAllCustomers();
+    List<Customer> viewAllCustomers() {
+        return customerDao.viewAllCustomers();
     }
-    void editCustomer(Customer customer,int id){
+
+    void editCustomer(Customer customer, int id) {
         customerDao.editCustomer(customer, id);
     }
-    void deleteCustomer(int id){
+
+    void deleteCustomer(int id) {
         customerDao.deleteCustomer(id);
     }
 }

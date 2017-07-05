@@ -6,6 +6,7 @@ package model;
 public class Part {
     private final String partName;
     private final double partPrice;
+    private int id;
 
     public Part(String partName, double partPrice) {
         this.partName = partName;

@@ -14,8 +14,7 @@ public class MainApp {
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
         OrdersService orderService = applicationContext.getBean(OrdersService.class);
 
-        Customer customer1 = new Customer(1,"eryk","ryk", "32322");
-        EmployeeService employeeService = new EmployeeService();
+
 
     }
 }
