@@ -11,6 +11,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -27,7 +31,7 @@ public class CustomerServiceSpec extends AbstractTransactionalJUnit4SpringContex
     private JdbcTemplate jdbcTemplate;
 
     @Before
-    public void deleteDB() {
+    public void deleteDB_AndResetSequence() {
         jdbcTemplate.execute("TRUNCATE TABLE customers RESTART IDENTITY");
     }
 
@@ -64,6 +68,35 @@ public class CustomerServiceSpec extends AbstractTransactionalJUnit4SpringContex
         Assertions.assertThat(acustomer).isEqualToComparingFieldByField(customer);
         Assertions.assertThat(acustomer2).isEqualToComparingFieldByField(customer2);
         Assertions.assertThat(acustomer3).isNotEqualTo(customer3);
+    }
+
+    @Test
+    public void shouldReturnCustomerList() throws Exception {
+        //given
+
+//        Customer acustomer = new Customer("testUser1", "testSurname1", "testNumber555");
+//        Customer acustomer2 = new Customer("testUser2", "testSurname2", "testNumber556");
+//        Customer acustomer3 = new Customer("testUser3", "testSurname3", "testNumber557");
+
+        List<Customer> acustomerList = Arrays.asList(
+                new Customer("testUser1", "testSurname1", "testNumber555"),
+                new Customer("testUser2", "testSurname2", "testNumber556"),
+                new Customer("testUser3", "testSurname3", "testNumber557")
+        );
+
+        jdbcTemplate.execute("INSERT INTO customers(CUSTOMERNAME, CUSTOMERSURNAME, CUSTOMERNUMBER) VALUES ('testUser1', 'testSurname1','testNumber555')");
+        jdbcTemplate.execute("INSERT INTO customers(CUSTOMERNAME, CUSTOMERSURNAME, CUSTOMERNUMBER) VALUES ('testUser2', 'testSurname2','testNumber556')");
+        jdbcTemplate.execute("INSERT INTO customers(CUSTOMERNAME, CUSTOMERSURNAME, CUSTOMERNUMBER) VALUES ('testUser3', 'testSurname3','testNumber557')");
+
+        //when
+
+        List<Customer> customerList = customerService.viewAllCustomers();
+
+        //then
+
+        Assertions.assertThat(customerList).hasSameElementsAs(acustomerList);
+
+
     }
 
 }
