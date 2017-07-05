@@ -10,6 +10,8 @@ import java.util.List;
  */
 @Repository
 public interface OrderDao {
-    void addOrder(List<Order> orders);
-    Order getOrder(int number);
+    void addOrder(Order order);
+    Order getOrderById(int id);
+    List<Order> viewAllOrders();
+
 }

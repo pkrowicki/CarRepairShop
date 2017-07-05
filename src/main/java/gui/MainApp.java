@@ -1,6 +1,6 @@
 package gui;
 
-import model.Employee;
+import model.Customer;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import services.EmployeeService;
@@ -14,7 +14,7 @@ public class MainApp {
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
         OrdersService orderService = applicationContext.getBean(OrdersService.class);
 
-        Employee employee1 = new Employee(1,"eryk","ryk", "32322");
+        Customer customer1 = new Customer(1,"eryk","ryk", "32322");
         EmployeeService employeeService = new EmployeeService();
 
     }
