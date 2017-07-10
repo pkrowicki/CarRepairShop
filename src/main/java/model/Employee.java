@@ -6,13 +6,12 @@ import java.util.List;
  * Created by Pawel Krowicki on 2017-07-04.
  */
 public class Employee {
-    private final int id;
+    private int id;
     private final String employeeName;
     private final String employeeSurname;
     private String employeeNumber;
 
-    public Employee(int id, String employeeName, String employeeSurname, String employeeNumber) {
-        this.id = id;
+    public Employee(String employeeName, String employeeSurname, String employeeNumber) {
         this.employeeName = employeeName;
         this.employeeSurname = employeeSurname;
         this.employeeNumber = employeeNumber;

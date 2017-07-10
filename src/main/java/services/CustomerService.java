@@ -24,15 +24,15 @@ public class CustomerService {
         return customerDao.viewCustomerById(id);
     }
 
-    List<Customer> viewAllCustomers() {
+    public List<Customer> viewAllCustomers() {
         return customerDao.viewAllCustomers();
     }
 
-    void editCustomer(Customer customer, int id) {
+    public void editCustomer(Customer customer, int id) {
         customerDao.editCustomer(customer, id);
     }
 
-    void deleteCustomer(int id) {
+    public void deleteCustomer(int id) {
         customerDao.deleteCustomer(id);
     }
 }

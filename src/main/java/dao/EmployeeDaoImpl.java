@@ -20,7 +20,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public void addEmployee(Employee employee) {
-        jdbcTemplate.update("INSERT INTO employees(name, surname, number) VALUES (?,?,?)", employee.getEmployeeName(), employee.getEmployeeSurname(), employee.getEmployeeNumber());
     }
 
     @Override
@@ -52,7 +51,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
                 String employeesurname = resultSet.getString("employeesurname");
                 String employeenumber = resultSet.getString("employeenumber");
 
-                return new Employee(id,employeename,employeesurname,employeenumber);
+                return new Employee(employeename,employeesurname,employeenumber);
             }
         };
     }

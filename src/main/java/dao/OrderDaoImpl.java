@@ -56,7 +56,7 @@ public class OrderDaoImpl implements OrderDao {
                 int customerid = resultSet.getInt("customerid");
                 employeeDao.viewEmployeeById(employeeid);
                 customerDao.viewCustomerById(customerid);
-                return new Order(id,employeeDao.viewEmployeeById(employeeid),customerDao.viewCustomerById(customerid));
+                return new Order(employeeDao.viewEmployeeById(employeeid),customerDao.viewCustomerById(customerid));
             }
         };
     }

@@ -10,8 +10,7 @@ public class Order {
     private final int employeeID;
     private final int customerID;
 
-    public Order(int orderId, Employee employee, Customer customer) {
-        this.orderId=orderId;
+    public Order(Employee employee, Customer customer) {
         this.employeeID = employee.getId();
         this.customerID = customer.getId();
     }
@@ -26,5 +25,9 @@ public class Order {
 
     public int getCustomerID() {
         return customerID;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }
