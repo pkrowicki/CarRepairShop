@@ -12,5 +12,7 @@ import java.util.List;
 public interface PartDao {
     void addPart(Part part);
     Part getPart(int id);
+    public void editPart(Part part, int id);
     List<Part> showAllParts();
+    void deletePart(int id);
 }

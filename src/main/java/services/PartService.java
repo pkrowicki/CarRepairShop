@@ -26,8 +26,16 @@ public class PartService {
         partDao.addPart(cache);
     }
 
+    public void deletePart(int id) {
+        partDao.deletePart(id);
+    }
+
     public Part getPart(int id){
         return partDao.getPart(id);
+    }
+
+    public void editPart(Part part, int id) {
+        partDao.editPart(part, id);
     }
 
     public List<Part> ViewAllParts(){
