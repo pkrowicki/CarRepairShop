@@ -21,20 +21,29 @@ public class PartDaoImpl implements PartDao {
     @Override
     public void addPart(Part part) {
         jdbcTemplate.update("INSERT INTO parts(partname, partprice) VALUES (?,?)", part.getPartName(), part.getPartPrice());
-
     }
 
     @Override
     public Part getPart(int id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM customers WHERE id = ?", getCustomerRowMapper(),id);
+        return jdbcTemplate.queryForObject("SELECT * FROM customers WHERE id = ?", getPartRowMapper(),id);
     }
 
     @Override
     public List<Part> showAllParts() {
-        return jdbcTemplate.query("SELECT * FROM parts", getCustomerRowMapper());
+        return jdbcTemplate.query("SELECT * FROM parts", getPartRowMapper());
     }
 
-    private RowMapper<Part> getCustomerRowMapper(){
+    @Override
+    public void deletePart(int id) {
+            jdbcTemplate.update("DELETE FROM parts WHERE id=?", id);
+    }
+
+    @Override
+    public void editPart(Part part, int id) {
+        jdbcTemplate.update("UPDATE parts SET partname=?, partprice=? WHERE id = ?", part.getPartName(),part.getPartPrice(),id);
+    }
+
+    private RowMapper<Part> getPartRowMapper(){
         return new RowMapper<Part>() {
             @Override
             public Part mapRow(ResultSet resultSet, int i) throws SQLException {

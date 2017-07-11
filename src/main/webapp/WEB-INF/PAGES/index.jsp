@@ -194,8 +194,8 @@
         <ol>
             <li><a href="#">Produkty</a>
                 <ul>
-                    <li><a href="/show-customers.html"><s:message code="menuitems.showproduct"></s:message></a></li>
-                    <li><a href="/add-customer.html"><s:message code="menuitems.addproduct"></s:message></a></li>
+                    <li><a href="/show-products.html"><s:message code="menuitems.showproduct"></s:message></a></li>
+                    <li><a href="/add-product.html"><s:message code="menuitems.addproduct"></s:message></a></li>
                     <li><a href="http://www.google.pl"><s:message code="menuitems.PLACEHOLDER"/> </a></li>
                     <li><a href="http://www.onet.pl"><s:message code="menuitems.PLACEHOLDER"/> </a></li>
                     <li>
@@ -217,16 +217,16 @@
             </li>
             <li><a href="#">Pracownicy</a>
                 <ul>
-                    <li><a href="/show-customers.html"><s:message code="menuitems.showworker"></s:message></a></li>
-                    <li><a href="/add-customer.html"><s:message code="menuitems.addworker"></s:message></a></li>
+                    <li><a href="/show-employees.html"><s:message code="menuitems.showworker"></s:message></a></li>
+                    <li><a href="/add-employee.html"><s:message code="menuitems.addworker"></s:message></a></li>
                     <li><a href="http://www.google.pl"><s:message code="menuitems.PLACEHOLDER"/> </a></li>
                     <li><a href="http://www.onet.pl"><s:message code="menuitems.PLACEHOLDER"/> </a></li>
                 </ul>
             </li>
             <li><a href="#">Zamowienia</a>
                 <ul>
-                    <li><a href="/show-customers.html"><s:message code="menuitems.showorders"></s:message></a></li>
-                    <li><a href="/add-customer.html"><s:message code="menuitems.addorders"></s:message></a></li>
+                    <li><a href="/show-orders.html"><s:message code="menuitems.showorders"></s:message></a></li>
+                    <li><a href="/add-order.html"><s:message code="menuitems.addorders"></s:message></a></li>
                     <li><a href="http://www.google.pl"><s:message code="menuitems.PLACEHOLDER"/> </a></li>
                     <li><a href="http://www.onet.pl"><s:message code="menuitems.PLACEHOLDER"/> </a></li>
                 </ul>
