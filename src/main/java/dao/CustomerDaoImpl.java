@@ -29,7 +29,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public List<Customer> viewAllCustomers() {
-        return jdbcTemplate.query("SELECT * FROM customers", getCustomerRowMapper());
+        return jdbcTemplate.query("SELECT * FROM customers c ORDER BY c.id", getCustomerRowMapper());
     }
 
     @Override
@@ -46,12 +46,12 @@ public class CustomerDaoImpl implements CustomerDao {
         return new RowMapper<Customer>() {
             @Override
             public Customer mapRow(ResultSet resultSet, int i) throws SQLException {
-                int id = resultSet.getInt("id");
+                int customerId = resultSet.getInt("id");
                 String customerName = resultSet.getString("customername");
                 String customerSurname = resultSet.getString("customersurname");
                 String customerPhone = resultSet.getString("customernumber");
 
-                return new Customer(customerName,customerSurname,customerPhone);
+                return new Customer(customerId,customerName,customerSurname,customerPhone);
             }
         };
     }

@@ -1,5 +1,7 @@
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title><s:message code="maintitle"/></title>
@@ -237,20 +239,31 @@
     </div>
 
     <div id="main">
-        <h1>GORĄCE CZĘŚCI</h1>
-        <div id="imagecontainer">
-            <div class="leftlandscape">
-                <img src="http://www.heapsoffun.com/pictures/2010/12/03/funny_car_parts_wheel_m1001.jpg" alt="hot wheel lol" height="350" width="350">
-            </div>
-            <div class="leftlandscape">
-                <img src="http://cdn1.bigcommerce.com/server700/84511/product_images/uploaded_images/funny-car-parts.jpg" alt="hot seats" height="350" width="350">
-            </div>
-            <div class="rightlandscape">
-                <img src="http://www.heapsoffun.com/pictures/2010/12/03/funny_car_parts_mirror_m1021.jpg" alt="hot mirror" height="350" width="350">
-            </div>
-            <div class="rightlandscape">
-                <img src="http://www.heapsoffun.com/pictures/2010/12/03/funny_car_parts_exhaust_pipe_m1006.jpg" alt="hot exhaust" height="350" width="350">
-            </div>
+        <div>
+            <table>
+                <thread>
+                    <tr>
+                        <th>Lp.</th>
+                        <th>Id</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Numer</th>
+                    </tr>
+                </thread>
+                <tbody>
+                <c:forEach items="${customer}" var="customer" varStatus="status">
+                    <tr>
+                        <td>${status.index+1}</td>
+                        <td>${customer.id}</td>
+                        <td>${customer.customerSurname}</td>
+                        <td>${customer.customerSurname}</td>
+                        <td>${customer.customerNumber}</td>
+                        <td><a href="/add-customer.html?id=${customer.id}"><s:message code="general.edit"/> </a></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            <a href="<c:url value="/"></c:url> "><s:message code="index.title"/> !</a>
         </div>
     </div>
 

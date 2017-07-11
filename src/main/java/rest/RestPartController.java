@@ -13,8 +13,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/rest") //przedRESTek xD
-public class PartController {
+@RequestMapping(value = "/restParts") //przedRESTek xD
+public class RestPartController {
 
 
     @Autowired

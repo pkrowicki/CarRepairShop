@@ -5,6 +5,8 @@ package controller;
  */
 
 import model.Customer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -27,6 +29,7 @@ import services.CustomerService;
 @Controller
 public class CustomerController {
 
+    Logger logger = LoggerFactory.getLogger(CustomerController.class);
     private CustomerService customerService;
 
     @Autowired
@@ -36,8 +39,8 @@ public class CustomerController {
 
     @RequestMapping("show-customers.html")
     public ModelAndView getAllCustomers() {
-        ModelAndView modelAndView = new ModelAndView("customers");
-        modelAndView.addObject("customers", customerService.viewAllCustomers());
+        ModelAndView modelAndView = new ModelAndView("customer");
+        modelAndView.addObject("customer", customerService.viewAllCustomers());
         return modelAndView;
     }
 
@@ -46,23 +49,26 @@ public class CustomerController {
         if(id == null) {
             ModelAndView modelAndView = new ModelAndView("addCustomer");
             modelAndView.addObject(new Customer());
+            logger.info("********************CUSTOMER PRZEKAZANY");
             return modelAndView;
         }
         ModelAndView modelAndView = new ModelAndView("addCustomer");
+        logger.info("*************************FAIL PRZY DODAWANIU");
         modelAndView.addObject(customerService.viewCustomerById(id));
         return modelAndView;
     }
 
     @RequestMapping(value="add-customer.html", method= RequestMethod.POST)
     public ModelAndView addCustomer(@ModelAttribute Customer customer, BindingResult bindingResult){
-        Integer wrapper = customer.getId();
         if(bindingResult.hasErrors()){
             return new ModelAndView("addCustomer");
         }
-        if(wrapper.equals(null)) {
+        if(customer.getId()==null) {
             customerService.addCustomer(customer);
+            logger.info("*********************Entering ADD CUSTOMER*******************");
         } else {
             customerService.editCustomer(customer, customer.getId());
+            logger.info("**********************ENTERING EDIT CUSTOMER ********************");
         }
 
         return new ModelAndView("addCustomerConfirmation", "customer",customer);

@@ -19,6 +19,10 @@ public class CustomerService {
     public void addCustomer(Customer customer) {
         customerDao.addCustomer(customer);
     }
+    public void addCustomer(int i, String name, String surname, String number){
+        Customer customer = new Customer(name, surname, number);
+        customerDao.addCustomer(customer);
+    }
 
     public Customer viewCustomerById(int id) {
         return customerDao.viewCustomerById(id);

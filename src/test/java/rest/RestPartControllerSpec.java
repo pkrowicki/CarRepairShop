@@ -13,8 +13,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Pawel Krowicki on 2017-07-10.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-public class PartControllerSpec extends AbstractTransactionalJUnit4SpringContextTests {
+public class RestPartControllerSpec {
 
     private static final String BASE_URL = "http://localhost:8080/rest" ;
     private RestTemplate restTemplate = new RestTemplate();

@@ -1,5 +1,7 @@
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title><s:message code="maintitle"/></title>
@@ -171,6 +173,10 @@
             bottom: 0;
         }
 
+        .BigFontFix {
+            line-height: 90%;
+        }
+
         input, textarea {
             width: 100%;
             padding: 5px;
@@ -231,26 +237,19 @@
                     <li><a href="http://www.onet.pl"><s:message code="menuitems.PLACEHOLDER"/> </a></li>
                 </ul>
             </li>
+            <li><a href="#">Send mail plox</a></li>
 
         </ol>
 
     </div>
 
     <div id="main">
-        <h1>GORĄCE CZĘŚCI</h1>
-        <div id="imagecontainer">
-            <div class="leftlandscape">
-                <img src="http://www.heapsoffun.com/pictures/2010/12/03/funny_car_parts_wheel_m1001.jpg" alt="hot wheel lol" height="350" width="350">
+        <div>
+            <h1>Klienci:</h1>
+            <div>
+                <h1 class="BigFontFix">DODANO KLIENTA ${customer.customerName} ${customer.customerSurname} posiadający numer telefonu ${customer.customerNumber}</h1>
             </div>
-            <div class="leftlandscape">
-                <img src="http://cdn1.bigcommerce.com/server700/84511/product_images/uploaded_images/funny-car-parts.jpg" alt="hot seats" height="350" width="350">
-            </div>
-            <div class="rightlandscape">
-                <img src="http://www.heapsoffun.com/pictures/2010/12/03/funny_car_parts_mirror_m1021.jpg" alt="hot mirror" height="350" width="350">
-            </div>
-            <div class="rightlandscape">
-                <img src="http://www.heapsoffun.com/pictures/2010/12/03/funny_car_parts_exhaust_pipe_m1006.jpg" alt="hot exhaust" height="350" width="350">
-            </div>
+            <a href="<c:url value="/"></c:url> "><s:message code="index.title"/> !</a>
         </div>
     </div>
 
