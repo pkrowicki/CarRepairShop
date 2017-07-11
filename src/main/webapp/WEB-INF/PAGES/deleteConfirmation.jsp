@@ -88,27 +88,6 @@
             color: #9aaacc;
         }
 
-        table {
-            width: 640px;
-            border-collapse:
-                    collapse; border-spacing: 0;
-        }
-
-        td, th {
-            border: 1px solid transparent; /* No more visible border */
-            height: 30px;
-            transition: all 0.3s;  /* Simple transition for hover effect */
-        }
-
-        th {
-            background: #121212;  /* Darken header a bit */
-            font-weight: bold;
-        }
-
-        td {
-            background: #1a1a1a;
-            text-align: center;
-        }
 
         input, textarea {
             width: 100%;
@@ -134,10 +113,6 @@
             margin: 30px auto;
             overflow: hidden;
             padding: 10px;
-        }
-        #imagecontainer {
-            width:100%;
-            overflow: hidden;
         }
 
         #nav {
@@ -166,16 +141,6 @@
             margin-top: 30px;
         }
 
-        .rightlandscape {
-            float:right;
-            height: auto;
-            width: 50%;
-        }
-        .leftlandscape {
-            float:left;
-            height: auto;
-            width: 50%;
-        }
         #headerlogo {
             height: 226px;
             width: 1080px;
@@ -275,32 +240,7 @@
 
     <div id="main">
         <div>
-            <table>
-                <thread>
-                    <tr>
-                        <th>Lp.</th>
-                        <th>Id</th>
-                        <th>Imię</th>
-                        <th>Nazwisko</th>
-                        <th>Numer</th>
-                        <th>A może edycja?</th>
-                        <th>Zagadkowa opcja</th>
-                    </tr>
-                </thread>
-                <tbody>
-                <c:forEach items="${customer}" var="customer" varStatus="status">
-                    <tr>
-                        <td>${status.index+1}</td>
-                        <td>${customer.id}</td>
-                        <td>${customer.customerSurname}</td>
-                        <td>${customer.customerSurname}</td>
-                        <td>${customer.customerNumber}</td>
-                        <td><a href="/add-customer.html?id=${customer.id}"><s:message code="general.edit"/> </a></td>
-                        <td><a href="/add-customer.html?id=${customer.id}&delete=yes"><s:message code="general.delete"/></a></td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+            <h1>Usunięto chwasta</h1>
             <a href="<c:url value="/"></c:url> "><s:message code="index.title"/> !</a>
         </div>
     </div>

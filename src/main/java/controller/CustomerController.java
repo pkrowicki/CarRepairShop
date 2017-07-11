@@ -15,12 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-//import pl.com.sages.spring.bootcamp.model.Product;
-//import pl.com.sages.spring.bootcamp.service.ProductService;
 import services.CustomerService;
-
-//import javax.enterprise.inject.Model;
-//import javax.validation.Valid;
 
 /**
  * Created by Pawel Krowicki on 2017-07-06.
@@ -45,11 +40,16 @@ public class CustomerController {
     }
 
     @RequestMapping(value="add-customer.html", method= RequestMethod.GET)
-    public ModelAndView showAddProductForm(@RequestParam(name="id", required = false) Integer id){
-        if(id == null) {
+    public ModelAndView showAddProductForm(@RequestParam(name="id", required = false) Integer id, @RequestParam(name="delete", required = false) boolean delete){
+        if(id == null&&delete==false) {
             ModelAndView modelAndView = new ModelAndView("addCustomer");
             modelAndView.addObject(new Customer());
             logger.info("********************CUSTOMER PRZEKAZANY");
+            return modelAndView;
+        } else if (id != null &&delete==true) {
+            customerService.deleteCustomer(id);
+            ModelAndView modelAndView = new ModelAndView("deleteConfirmation");
+            logger.info("*************************Fire teh lazors");
             return modelAndView;
         }
         ModelAndView modelAndView = new ModelAndView("addCustomer");
