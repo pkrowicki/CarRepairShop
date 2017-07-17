@@ -29,14 +29,14 @@ public class PartController {
         this.partService = partService;
     }
 
-    @RequestMapping("show-parts.html")
+    @RequestMapping("show-products.html")
     public ModelAndView getAllParts() {
         ModelAndView modelAndView = new ModelAndView("product");
         modelAndView.addObject("product", partService.ViewAllParts());
         return modelAndView;
     }
 
-    @RequestMapping(value="add-part.html", method= RequestMethod.GET)
+    @RequestMapping(value="add-product.html", method= RequestMethod.GET)
     public ModelAndView showAddProductForm(@RequestParam(name="id", required = false) Integer id, @RequestParam(name="delete", required = false) boolean delete){
         if(id == null&&delete==false) {
             ModelAndView modelAndView = new ModelAndView("addProduct");

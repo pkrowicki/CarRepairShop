@@ -22,4 +22,6 @@
         <url-pattern>/</url-pattern> <!-- Cały ruch przechodzi przez dispatchera -->
     </servlet-mapping>
 
+
+
 </web-app>
